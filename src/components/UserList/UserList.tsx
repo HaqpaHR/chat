@@ -2,7 +2,8 @@ import React from "react";
 import { Users } from "../../types";
 import { getData } from "../../api/api";
 import { Message } from "../../types";
-import {TitleTop} from "../TitleTop/TitleTop";
+import './UserList.scss';
+import classNames from "classnames";
 
 interface Props {
   onSelect: (id: number) => void;
@@ -22,6 +23,7 @@ export class UserList extends React.Component<Props, {}> {
     if(lastMessage?.type === 'to') {
       return 'Ты: '
     }
+    return ''
   };
 
   componentDidMount = async() => {
@@ -34,24 +36,31 @@ export class UserList extends React.Component<Props, {}> {
 
   render() {
     return (
-      <div className="user__list-container">
-        <div className='user__list--container'>
-          {
-            this.props.getData.map(user => (
-                <div
-                    key={user.id}
-                    className="user__list--item"
-                    onClick={() => this.props.onSelect(user.id)}
-                >
-                  <img src={user.icon} alt={user.name} />
-                  <li>{user.name}</li>
-                  <p>{this.getTypeOfMessage(user.messages)}<span>{this.lastMessage(user.messages)}</span></p>
-                </div>
-            )
+      <div className='user__list--container'>
+        {
+          this.props.getData.map(user => (
+            <div
+                key={user.id}
+                className={classNames("user__list--item", {
+                  "selected": user.id === this.props.selectedUserId,
+                })}
+                onClick={() => this.props.onSelect(user.id)}
+            >
+              <img
+                src={user.icon}
+                alt={user.name}
+                className="user__list--image"
+              />
+              <li className="user__list--name">{user.name}</li>
+              <p className="user__list--message-you"
+              >{this.getTypeOfMessage(user.messages)}
+                <span className="user__list--message">{this.lastMessage(user.messages)}</span>
+              </p>
+            </div>
           )
-          }
-        </div>
-      </div>
+        )
+        }
+    </div>
     )
   }
 }

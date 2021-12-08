@@ -1,0 +1,60 @@
+.message {
+  &__container {
+    grid-area: 2/7/5/17;
+    background-color: #ECEDEF;
+    padding: 90px 20px 20px 20px;
+    border-top: #1A1D1E;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  &__list {
+    border-top: 1px solid #D9DDDD;
+    padding-top: 42px;
+    height: 680px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      border-radius: 3px;
+      width: 6px;
+    }
+  }
+
+  &__send {
+    position: relative;
+    &--input {
+      width: 456px;
+      border-radius: 30px;
+      padding: 14px 16px 14px 16px;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        font-family: sans-serif;
+        font-size: 14px;
+        line-height: 140%;
+        opacity: 0.6;
+      }
+    }
+
+    &--icons {
+      position: absolute;
+      top: 11px;
+      right: 0;
+      background: url("../../img/icons.png");
+      height: 26px;
+      width: 128px;
+    }
+  }
+}
+.button__send {
+  position: absolute;
+  top: 7px;
+  right: 0;
+  padding: 14px;
+  opacity: 0;
+}

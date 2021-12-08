@@ -1,6 +1,7 @@
 import React from "react";
 import {Message} from "../../types";
 import classNames from 'classnames';
+import './Message.scss';
 
 type Props = {
   messageInfo: Message,
@@ -18,13 +19,18 @@ export class MessageStyle extends React.Component<Props, {}> {
 
     return (
         <div className={classNames(
-                 'message', {
-                   'message--from': type === 'from',
-                   'message--to': type === 'to',
-                 },
-             )}>
-          <small>{realTime}</small>
-          <p>{msg}</p>
+            'message', {
+              'message__from': type === 'from',
+              'message__to': type === 'to',
+            },
+        )}>
+          <span className={classNames(
+              'message__type', {
+                'from': type === 'from',
+                'to': type === 'to',
+              },
+          )}>{msg}</span>
+          <small className='message__time'>{realTime}</small>
         </div>
     )
   }

@@ -37,11 +37,13 @@ export class App extends React.Component<{},State> {
     const { selectedUserId, getData } = this.state;
     return (
         <div className="app">
-          <div className="user__list--top">
-            <select className="user__list--select">
-              <option value=''></option>
-              <option value=''></option>
-            </select>
+          <div className="header">
+            <div className="header__select--container">
+              <select className="header__select">
+                <option value='all'>Все сообщения</option>
+                <option value='read'>Прочитанные</option>
+              </select>
+            </div>
             <TitleTop data={this.state.getData} selectedUserId={this.state.selectedUserId} />
           </div>
           <UserList onSelect={this.changeUser} selectedUserId={selectedUserId} getData={getData} />

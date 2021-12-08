@@ -1,6 +1,41 @@
 .user__list {
-  &-container {
-    grid-area: 1/1/5/7;
+  &--container {
+    grid-area: 2/1/5/7;
     background-color: white;
   }
+
+  &--item {
+    height: 72px;
+    display: grid;
+    grid-template-columns: 80px 315px;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  &--image {
+    width: 48px;
+    margin-left: 20px;
+    margin-top: 12px;
+    grid-area: 1/1/3/1;
+  }
+
+  &--name {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 16px;
+  }
+
+  &--message {
+    color: #8398A2;
+    font-size: 14px;
+
+    &-you {
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+}
+
+.selected {
+  background-color: #ECEDEF;
+  border-right: 1px solid #D9DDDD;
 }

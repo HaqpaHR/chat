@@ -1,0 +1,62 @@
+.header__user {
+  &-info {
+    grid-column-start: 7;
+    grid-column-end: 17;
+    background-color: #ECEDEF;
+    position: relative;
+  }
+
+  &--picture {
+    width: 64px;
+    margin-top: 21px;
+    margin-left: 20px;
+  }
+
+  &--name {
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 93px;
+    color: #1A1D1E;
+    font-size: 20px;
+
+    &:before {
+      content: '11';
+      color: transparent;
+      background-image: url('../../img/icon–verified.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      padding: 4px;
+      margin-right: 4px;
+    }
+  }
+
+  &--relation {
+    display: inline-block;
+    margin-top: 0px;
+    position: absolute;
+    top: 58px;
+    left: 97px;
+
+    &:before {
+      content: '111';
+      color: transparent;
+      background-image: url('../../img/user_heart_both.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      margin-right: 4px;
+    }
+  }
+
+  &--gallery {
+    background-image: url("../../img/photos.png");
+    height: 48px;
+    width: 486px;
+    margin-left: 22px;
+  }
+
+}

@@ -2,7 +2,7 @@ import React from "react";
 import {getData,getMessages,sendData} from "../../api/api";
 import { Message } from "../../types";
 import { MessageStyle } from "../Message/Message";
-import "./Message.scss";
+import "./MessageList.scss";
 import { v4 as uuid4 } from 'uuid';
 
 interface Props {
@@ -71,9 +71,8 @@ export class MessageList extends React.Component<Props, State> {
 
   render() {
     const { messages, userMessage} = this.state;
-    console.log(messages)
     return (
-      <div>
+      <div className='message__container'>
         <div className='message__list'>
           {messages.map((message:Message) => (<MessageStyle messageInfo={message} key={uuid4()} />))}
         </div>
@@ -82,10 +81,13 @@ export class MessageList extends React.Component<Props, State> {
             className='message__send'
         >
           <input
+              className='message__send--input'
               type='text'
+              placeholder='Твое сообщение... (Enter чтобы отправить)'
               value={userMessage}
               onChange={this.inputHandler}
           />
+          <div className='message__send--icons'></div>
           <button
               type='submit'
               className='button__send'

@@ -1,6 +1,7 @@
 import React from "react";
 import { Users } from "../../types";
 import { getData } from "../../api/api";
+import './TitleTop.scss';
 
 type Props = {
   data: Users[]
@@ -28,11 +29,12 @@ export class TitleTop extends React.Component<Props,{}> {
   render() {
     const { usersInfo } = this.state;
     let staff = this.chooseUser();
-    console.log(staff)
     return (
-        <div className="user__list--title">
-          <img className="user__list--picture" src={staff?.icon} alt={staff?.name}/>
-          <p className="user__list--name">{staff?.name}</p>
+        <div className="header__user-info">
+          <img className="header__user--picture" src={staff?.icon} alt={staff?.name}/>
+          <p className="header__user--name">{staff?.name}</p>
+          <p className="header__user--relation">Вы понравились друг другу вчера</p>
+          <div className="header__user--gallery"></div>
         </div>
     )
   }
